@@ -49,3 +49,9 @@ dev.off()
 #best guess
 prob_noIce[which.max(prob_noIce$P_thisYear_firstNoIce), "Winter_start"]
 max(prob_noIce$P_thisYear_firstNoIce)
+
+#see how normal dist fits residuals
+hist(resid(ice_lm), freq=FALSE)
+xfit = seq(-80, 50, 1)
+yfit = dnorm(xfit, mean=0, sd=SD)
+lines(xfit,yfit, col="green")
